@@ -1,0 +1,92 @@
+/* Import Google Font - Keep this at the very top */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:300,700&display=swap');
+
+/* ========================================= */
+/* 1. Base/Reset Styles                      */
+/* ========================================= */
+* {
+    box-sizing: border-box; /* Crucial for controlling layout and padding */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+}
+
+.content-container {
+    max-width: 1200px; /* Max width for the entire blog content */
+    margin: 0 auto; /* Center the container */
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* ========================================= */
+/* 2. Below 960px Layout (Stacked/Default)   */
+/* ========================================= */
+
+.blog-header {
+    /* Use the teal/green color from the example image */
+    background-color: #55a8a8; 
+    color: white;
+    padding: 40px 20px;
+    margin-bottom: 20px; /* Space below the header when stacked */
+    text-align: center;
+}
+
+.blog-header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.blog-header h2 {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin: 0;
+}
+
+.image-wrapper {
+    margin: 0; /* Remove default figure margins */
+    padding: 0;
+}
+
+/* Ensure the image is fully responsive (100% width on small screens) */
+.image-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ========================================= */
+/* 3. 960px and Above Layout (Side-by-Side)  */
+/* ========================================= */
+
+@media (min-width: 960px) {
+    
+    /* Switch the wrapper from stacked to side-by-side using Flexbox */
+    .header-and-image-wrapper {
+        display: flex;
+        align-items: stretch; /* Makes sure the header box and image area match height */
+        gap: 0; 
+    }
+    
+    /* Both header and image take up 50% of the wrapper width */
+    .blog-header,
+    .image-wrapper {
+        flex: 1 1 50%; /* flex-grow, flex-shrink, flex-basis: 50% */
+        width: 50%;
+    }
+    
+    /* Adjust header for the horizontal layout */
+    .blog-header {
+        margin-bottom: 0; /* Remove margin from the stacked layout */
+        /* Center the text content within the 50% box */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Vertical centering */
+        align-items: center; /* Horizontal centering */
+        padding: 40px; /* Adjust padding as needed for appearance */
+    }
+}
